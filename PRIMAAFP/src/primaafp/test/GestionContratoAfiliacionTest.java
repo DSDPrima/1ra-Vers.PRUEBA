@@ -19,7 +19,7 @@ public class GestionContratoAfiliacionTest {
 			GestionContratoAfiliacion negocio = new GestionContratoAfiliacion();
 
 			try {
-				negocio.insertar(123,"11/12/2013","DNI", "456123","PRO1","Daniel","Manuel","Mendoza","Paliza","Junin","Huancavelica","Toro Seco","Loma Umbrosa 520","Lima","Lima","Lima","Al cotado de una casa","5555555");
+				negocio.insertar(123,"11/12/2013","DNI", "456123","PRO1","Daniel","Manuel","Minaya","Cruces","Junin","Huancavelica","Toro Seco","Loma Umbrosa 520","Lima","Lima","Lima","Al cotado de una casa","5555555");
 
 //				Categoria nuevo = negocio.obtener(7);
 
