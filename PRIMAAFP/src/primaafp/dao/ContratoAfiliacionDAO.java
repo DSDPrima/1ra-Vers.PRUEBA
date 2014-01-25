@@ -59,5 +59,49 @@ public class ContratoAfiliacionDAO extends BaseDAO {
 		return vo;
 	}
 
+	public Collection<ContratoAfiliacion> listar(int NroFormulario) throws DAOExcepcion {
+		Collection<ContratoAfiliacion> c = new ArrayList<ContratoAfiliacion>();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			con = ConexionBD.obtenerConexion();
+			String query = "select NroFormulario,FechaSuscripcion,TipoDocumento,NroDocumento,CodigoPromotor,PrimerNombre,SegundoNombre,ApellidoPaterno,ApellidoMaterno,DepartamentoNacimiento,ProvinciaNacimiento,DistritoNacimiento,Direccion,Departamento,Provincia,Distrito,Referencia,Telefono from ContratoAfiliacion where NroFormulario = " + NroFormulario + " ";
+			stmt = con.prepareStatement(query);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				ContratoAfiliacion vo = new ContratoAfiliacion();
+				vo.setNroFormulario(rs.getInt("NroFormulario"));
+				vo.setFechaSuscripcion(rs.getString("FechaSuscripcion"));
+				vo.setTipoDocumento(rs.getString("TipoDocumento"));
+				vo.setNroDocumento(rs.getString("NroDocumento"));
+				vo.setCodigoPromotor(rs.getString("CodigoPromotor"));
+				vo.setPrimerNombre(rs.getString("PrimerNombre"));
+				vo.setSegundoNombre(rs.getString("SegundoNombre"));
+				vo.setApellidoPaterno(rs.getString("ApellidoPaterno"));
+				vo.setApellidoMaterno(rs.getString("ApellidoMaterno"));
+				vo.setDepartamentoNacimiento(rs.getString("DepartamentoNacimiento"));
+				vo.setProvinciaNacimiento(rs.getString("ProvinciaNacimiento"));	
+				vo.setDistritoNacimiento(rs.getString("DistritoNacimiento"));
+				vo.setDireccion(rs.getString("Direccion"));
+				vo.setDepartamento(rs.getString("Departamento"));
+				vo.setProvincia(rs.getString("Provincia"));
+				vo.setDistrito(rs.getString("Distrito"));
+				vo.setReferencia(rs.getString("Referencia"));
+				vo.setTelefono(rs.getString("Telefono"));
+				c.add(vo);
+			}
+
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return c;
+	}
+
 	
 }

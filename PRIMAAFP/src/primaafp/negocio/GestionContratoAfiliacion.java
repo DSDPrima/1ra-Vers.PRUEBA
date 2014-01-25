@@ -39,4 +39,13 @@ public class GestionContratoAfiliacion {
 		return dao.insertar(vo);
 	}
 
+	public Collection<ContratoAfiliacion> listar(int nroformulario) throws DAOExcepcion {
+		ContratoAfiliacionDAO dao = new ContratoAfiliacionDAO();
+
+		return dao.listar(nroformulario);
+	}
+
+
+
+
 }

@@ -13,13 +13,13 @@ import primaafp.modelo.ContratoAfiliacion;
 
 public class GestionContratoAfiliacionTest {
 
-	@Test
+	//@Test
 		public void insertarTest() {
 
 			GestionContratoAfiliacion negocio = new GestionContratoAfiliacion();
 
 			try {
-				negocio.insertar(123,"11/12/2013","DNI", "456123","PRO1","Daniel","Manuel","Minaya","Cruces","Junin","Huancavelica","Toro Seco","Loma Umbrosa 520","Lima","Lima","Lima","Al cotado de una casa","5555555");
+				negocio.insertar(1234,"11/12/2013","DNI", "456123","PRO1","Daniel","Manuel","Minaya","Cruces","Junin","Huancavelica","Toro Seco","Loma Umbrosa 520","Lima","Lima","Lima","Al cotado de una casa","5555555");
 
 //				Categoria nuevo = negocio.obtener(7);
 
@@ -30,4 +30,30 @@ public class GestionContratoAfiliacionTest {
 			}
 		}
 
+ @Test
+		public void listarTest() {
+
+				GestionContratoAfiliacion negocio = new GestionContratoAfiliacion();
+
+				try {
+					Collection<ContratoAfiliacion> listado = negocio.listar(123);
+
+					// System.out.println(listado.size());
+					
+					for (ContratoAfiliacion c : listado)
+					{
+						System.out.println(c.getNroFormulario() + ' ' + c.getFechaSuscripcion() + ' ' + c.getTipoDocumento() + ' ' + c.getNroDocumento() + ' ' + c.getCodigoPromotor() + ' ' + c.getPrimerNombre() + ' ' + c.getSegundoNombre() + ' ' + c.getApellidoPaterno() + ' ' + c.getApellidoMaterno() + ' ' + c.getDepartamentoNacimiento() + ' ' + c.getProvinciaNacimiento() + ' ' + c.getDistritoNacimiento() + ' ' + c.getDireccion() + ' ' + c.getDepartamento() + ' ' + c.getProvincia() + ' ' + c.getDistrito() + ' ' + c.getReferencia() + ' ' + c.getTelefono());
+					}
+
+					Assert.assertTrue(listado.size() > 0);
+
+				} catch (DAOExcepcion e) {
+
+					Assert.fail("Falló el listado: " + e.getMessage());
+
+				}
+
+			}
+	
+		
 }
