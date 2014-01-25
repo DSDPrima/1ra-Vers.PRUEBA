@@ -19,7 +19,7 @@ public class GestionContratoAfiliacionTest {
 			GestionContratoAfiliacion negocio = new GestionContratoAfiliacion();
 
 			try {
-				negocio.insertar(5555,"11/12/2013","DNI", "456123","PRO1","Daniel","Manuel","Minaya","Cruces","Junin","Huancavelica","Toro Seco","Loma Umbrosa 520","Lima","Lima","Lima","Al cotado de una casa","5555555");
+				negocio.insertar(7777,"11/12/2013","DNI", "456123","PRO1","Daniel","Manuel","Minaya","Cruces","Junin","Huancavelica","Toro Seco","Loma Umbrosa 520","Lima","Lima","Lima","Al cotado de una casa","5555555");
 
 //				Categoria nuevo = negocio.obtener(7);
 
@@ -36,7 +36,7 @@ public class GestionContratoAfiliacionTest {
 				GestionContratoAfiliacion negocio = new GestionContratoAfiliacion();
 
 				try {
-					Collection<ContratoAfiliacion> listado = negocio.listar(6666);
+					Collection<ContratoAfiliacion> listado = negocio.listar(8888);
 
 					// System.out.println(listado.size());
 					
