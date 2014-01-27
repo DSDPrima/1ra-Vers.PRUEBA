@@ -19,7 +19,7 @@ public class GestionContratoAfiliacionTest {
 			GestionContratoAfiliacion negocio = new GestionContratoAfiliacion();
 
 			try {
-				negocio.insertar(7777,"11/12/2013","DNI", "456123","PRO1","Daniel","Manuel","Minaya","Cruces","Junin","Huancavelica","Toro Seco","Loma Umbrosa 520","Lima","Lima","Lima","Al cotado de una casa","5555555");
+				negocio.insertar(1234,"11/12/2013","DNI", "456123","PRO1","Luis","Alberto","Sotelo","Cruces","Junin","Huancavelica","Toro Seco","Loma Umbrosa 520","Lima","Lima","Lima","Al cotado de una casa","5555555");
 
 //				Categoria nuevo = negocio.obtener(7);
 
@@ -30,13 +30,14 @@ public class GestionContratoAfiliacionTest {
 			}
 		}
 
-@Test
+		
+	//@Test
 		public void listarTest() {
 
 				GestionContratoAfiliacion negocio = new GestionContratoAfiliacion();
 
 				try {
-					Collection<ContratoAfiliacion> listado = negocio.listar(8888);
+					Collection<ContratoAfiliacion> listado = negocio.listar(9999);
 
 					// System.out.println(listado.size());
 					
@@ -55,5 +56,43 @@ public class GestionContratoAfiliacionTest {
 
 			}
 	
+
+	@Test
+		public void actualizarTest() {
 		
+					GestionContratoAfiliacion negocio = new GestionContratoAfiliacion();
+		
+					try {
+		
+						negocio.actualizar(6666,"11/12/2014","DNI", "456123","PRO1","Luis","Alberto","Sotelo","Cruces","Junin","Huancavelica","Toro Seco","Loma Umbrosa 520","Lima","Lima","Lima","Al cotado de una casa","5555555");
+		
+		//				Categoria nuevo = negocio.obtener(7);
+		
+		//				Assert.assertEquals("Categoria de electrónicos 2", nuevo.getDescripcion());
+		
+					} catch (DAOExcepcion e) {
+		
+						Assert.fail("Falló la actualización: " + e.getMessage());
+		
+					}
+				}
+
+		
+	//@Test
+		public void eliminarTest() {
+
+			GestionContratoAfiliacion negocio = new GestionContratoAfiliacion();
+
+				try {
+
+					negocio.eliminar(1234);
+	
+
+					} catch (DAOExcepcion e) {
+
+						Assert.fail("Falló la eliminición: " + e.getMessage());
+
+	}
+
+	}
 }
